@@ -13,3 +13,4 @@ web-build/
 # macOS
 .DS_Store
 .env
+%ProgramData%/Microsoft/Windows/UUS/State/_active.uusver
