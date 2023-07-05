@@ -1,12 +1,12 @@
 import React from "react"
 import { Text, View } from "react-native"
 
-const PopularJobCard = () => {
+const NearbyJobCard = () => {
   return (
     <View>
-      <Text>PopularJobCard</Text>
+      <Text>NearbyJobCard</Text>
     </View>
   )
 }
 
-export default PopularJobCard
+export default NearbyJobCard

@@ -1,12 +1,12 @@
 import React from "react"
 import { Text, View } from "react-native"
 
-const PopularJobCard = () => {
+const Tabs = () => {
   return (
     <View>
-      <Text>PopularJobCard</Text>
+      <Text>Tabs</Text>
     </View>
   )
 }
 
-export default PopularJobCard
+export default Tabs

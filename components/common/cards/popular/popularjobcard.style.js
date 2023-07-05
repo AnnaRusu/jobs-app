@@ -1,6 +1,6 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet } from "react-native"
 
-import { COLORS, FONT, SHADOWS, SIZES } from "../../../../constants";
+import { COLORS, FONT, SHADOWS, SIZES } from "../../../../constants"
 
 const styles = StyleSheet.create({
   container: (selectedJob, item) => ({
@@ -54,6 +54,6 @@ const styles = StyleSheet.create({
     fontFamily: FONT.regular,
     color: "#B3AEC6",
   },
-});
+})
 
-export default styles;
+export default styles
