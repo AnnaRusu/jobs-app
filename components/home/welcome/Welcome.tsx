@@ -57,7 +57,6 @@ const Welcome = () => {
         <View style={styles.searchWrapper}>
           <TextInput
             style={styles.searchInput}
-            value=""
             onChangeText={() => {}}
             placeholder="What are you looking for?"
           />
@@ -77,8 +76,8 @@ const Welcome = () => {
           renderItem={Item}
           keyExtractor={(item) => item}
           contentContainerStyle={{ columnGap: SIZES.small }}
-          horizontal
           bounces={true}
+          horizontal
         />
       </View>
     </View>
