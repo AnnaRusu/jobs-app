@@ -18,8 +18,6 @@ const PopularJobs = () => {
     num_page: 1,
   })
 
-  console.log("data:", data)
-
   const Item = ({ item }: { item: JobInterface }) => {
     return <PopularJobCard job={item} />
   }

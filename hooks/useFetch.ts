@@ -1,5 +1,5 @@
 import axios from "axios"
-import { RAPID_API_KEY } from "@env"
+import { REACT_APP_API_KEY } from "@env"
 import { useEffect, useState } from "react"
 import { FetchProps, JobInterface } from "../interfaces"
 
@@ -15,7 +15,7 @@ const useFetch = (
     method: "GET",
     url: `https://jsearch.p.rapidapi.com/${endpoint}`,
     headers: {
-      "X-RapidAPI-Key": RAPID_API_KEY,
+      "X-RapidAPI-Key": REACT_APP_API_KEY,
       "X-RapidAPI-Host": "jsearch.p.rapidapi.com",
     },
     params: { ...query },

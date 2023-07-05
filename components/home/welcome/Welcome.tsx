@@ -19,7 +19,6 @@ const Welcome = () => {
 
   const handlePressItem = (item: string) => {
     setActiveJobType(item)
-    console.log(typeof item)
     router.push(`/search/${item}`)
   }
 
