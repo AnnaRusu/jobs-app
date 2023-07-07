@@ -6,21 +6,24 @@ const styles = StyleSheet.create({
   container: {
     width: 250,
     padding: SIZES.xLarge,
+    marginVertical: SIZES.small,
+    marginHorizontal: SIZES.small / 6,
     borderRadius: SIZES.medium,
     justifyContent: "space-between",
     ...SHADOWS.medium,
-    shadowColor: COLORS.white,
+    shadowColor: COLORS.gray,
   },
   logoContainer: {
     width: 50,
     height: 50,
     borderRadius: SIZES.medium,
-    justifyContent: "center",
-    alignItems: "center",
+    borderWidth: 1,
+    borderColor: "#e1d9d1",
   },
   logoImage: {
-    width: "70%",
-    height: "70%",
+    width: "100%",
+    height: "100%",
+    borderRadius: SIZES.medium,
   },
   companyName: {
     fontSize: SIZES.medium,
@@ -34,12 +37,6 @@ const styles = StyleSheet.create({
   jobName: {
     fontSize: SIZES.large,
     fontFamily: FONT.medium,
-  },
-  infoWrapper: {
-    flexDirection: "row",
-    marginTop: 5,
-    justifyContent: "flex-start",
-    alignItems: "center",
   },
   publisher: {
     fontSize: SIZES.medium - 2,

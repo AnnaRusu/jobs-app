@@ -1,19 +1,33 @@
-import React from "react"
-import { Image, Text, TouchableOpacity, View } from "react-native"
+import { JobInterface } from "interfaces"
+import {
+  GestureResponderEvent,
+  Image,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native"
 import { COLORS } from "../../../../constants"
-import styles from "./popularjobcard.style"
 import { checkImageURL } from "../../../../utils"
+import styles from "./popularjobcard.style"
 
-const PopularJobCard = ({ selectedJob, job }: any) => {
+const PopularJobCard = ({
+  job,
+  selectedJob,
+  handleCardPress,
+}: {
+  job: JobInterface
+  selectedJob: string
+  handleCardPress: (job: JobInterface) => void
+}) => {
   const containerStyle = [
     styles.container,
-    selectedJob === job?.id
+    selectedJob === job.id
       ? { backgroundColor: COLORS.primary }
       : { backgroundColor: "#FFF" },
   ]
   const logoContainerStyle = [
     styles.logoContainer,
-    selectedJob === job?.id
+    selectedJob === job.id
       ? { backgroundColor: "#FFF" }
       : { backgroundColor: COLORS.white },
   ]
@@ -30,14 +44,18 @@ const PopularJobCard = ({ selectedJob, job }: any) => {
       : { color: COLORS.primary },
   ]
 
+  const genericLogo =
+    "https://t4.ftcdn.net/jpg/05/05/61/73/360_F_505617309_NN1CW7diNmGXJfMicpY9eXHKV4sqzO5H.jpg"
+
   return (
-    <TouchableOpacity style={containerStyle}>
+    <TouchableOpacity
+      style={containerStyle}
+      onPress={(event: GestureResponderEvent) => handleCardPress(job)}
+    >
       <TouchableOpacity style={logoContainerStyle}>
         <Image
           source={{
-            uri: checkImageURL(job?.logo)
-              ? job?.logo
-              : "https://t4.ftcdn.net/jpg/05/05/61/73/360_F_505617309_NN1CW7diNmGXJfMicpY9eXHKV4sqzO5H.jpg",
+            uri: checkImageURL(job.logo) ? job.logo : genericLogo,
           }}
           resizeMode="contain"
           style={styles.logoImage}
@@ -46,6 +64,7 @@ const PopularJobCard = ({ selectedJob, job }: any) => {
       <Text style={styles.companyName} numberOfLines={1}>
         {job.employer}
       </Text>
+
       <Text style={jobTitleStyle} numberOfLines={1}>
         {job.title}
       </Text>
