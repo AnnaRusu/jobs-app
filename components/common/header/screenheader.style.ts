@@ -1,6 +1,6 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet } from "react-native"
 
-import { COLORS, SIZES } from "../../../constants";
+import { COLORS, SIZES } from "../../../constants"
 
 const styles = StyleSheet.create({
   btnContainer: {
@@ -11,11 +11,9 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-  btnImg: (dimension) => ({
-    width: dimension,
-    height: dimension,
+  btnImg: {
     borderRadius: SIZES.small / 1.25,
-  }),
-});
+  },
+})
 
-export default styles;
+export default styles

@@ -1,6 +1,6 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet } from "react-native"
 
-import { COLORS, SHADOWS, SIZES } from "../../../../constants";
+import { COLORS, SHADOWS, SIZES } from "../../../../constants"
 
 const styles = StyleSheet.create({
   container: {
@@ -11,8 +11,8 @@ const styles = StyleSheet.create({
     padding: SIZES.medium,
     borderRadius: SIZES.small,
     backgroundColor: "#FFF",
-    ...SHADOWS.medium,
-    shadowColor: COLORS.white,
+    ...SHADOWS.small,
+    shadowColor: COLORS.gray,
   },
   logoContainer: {
     width: 50,
@@ -21,10 +21,13 @@ const styles = StyleSheet.create({
     borderRadius: SIZES.medium,
     justifyContent: "center",
     alignItems: "center",
+    borderWidth: 1,
+    borderColor: "#e1d9d1",
   },
-  logImage: {
-    width: "70%",
-    height: "70%",
+  logoImage: {
+    width: "100%",
+    height: "100%",
+    borderRadius: SIZES.medium,
   },
   textContainer: {
     flex: 1,
@@ -42,6 +45,6 @@ const styles = StyleSheet.create({
     marginTop: 3,
     textTransform: "capitalize",
   },
-});
+})
 
-export default styles;
+export default styles
