@@ -3,22 +3,32 @@ import { REACT_APP_API_KEY } from "@env"
 import { useEffect, useState } from "react"
 import { FetchProps, JobInterface } from "../interfaces"
 
-const useFetch = (
-  endpoint: FetchProps["endpoint"],
-  query: FetchProps["query"]
-) => {
+const useFetchMany = (query: FetchProps["query"]) => {
   const [data, setData] = useState<JobInterface[]>([])
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<Error | null>(null)
+  const types = ["Full-time", "Part-time", "Contractor"]
+  const cities = [
+    "Paris",
+    "London",
+    "Berlin",
+    "Madrid",
+    "Rome",
+    "Amsterdam",
+    "Vienna",
+    "Athens",
+    "Lisbon",
+    "Stockholm",
+  ]
 
   const options = {
     method: "GET",
-    url: `https://jsearch.p.rapidapi.com/${endpoint}`,
+    url: "https://jobsearch4.p.rapidapi.com/api/v1/Jobs/Search",
     headers: {
       "X-RapidAPI-Key": REACT_APP_API_KEY,
-      "X-RapidAPI-Host": "jsearch.p.rapidapi.com",
+      "X-RapidAPI-Host": "jobsearch4.p.rapidapi.com",
     },
-    params: { ...query },
+    params: query,
   }
 
   const fetchData = async () => {
@@ -26,22 +36,23 @@ const useFetch = (
 
     try {
       const res = await axios.request(options)
+      // Only keep/edit the keys I'm going to use
       const newData: JobInterface[] = res.data.data.map((item: any) => {
         return {
-          id: item.job_id,
-          title: item.job_title,
-          description: item.job_description,
-          type: item.job_employment_type,
-          skills: item.job_required_skills,
-          country: item.job_country,
-          employer: item.employer_name,
-          website: item.employer_website,
-          logo: item.employer_logo,
-          publisher: item.job_publisher,
-          job_link: item.apply_link,
+          id: item.id,
+          title: item.title,
+          type: types[Math.floor(Math.random() * types.length)],
+          skills: item.tags,
+          location: cities[Math.floor(Math.random() * cities.length)],
+          company: item.company,
+          logo: item.logo,
+          publisher: item.jobSource,
+          link: item.url,
+          slug: item.slug,
         }
       })
       setData(newData)
+
       setIsLoading(false)
     } catch (error: any | null) {
       setError(error)
@@ -63,4 +74,4 @@ const useFetch = (
   return { data, isLoading, error, refetch }
 }
 
-export default useFetch
+export default useFetchMany

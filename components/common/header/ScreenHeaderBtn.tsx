@@ -2,15 +2,19 @@ import React from "react"
 import { Image, ImageSourcePropType, TouchableOpacity } from "react-native"
 import styles from "./screenheader.style"
 
+interface ScreenHeaderBtnProps {
+  icon: ImageSourcePropType
+  dimension: string
+  onPress?: () => void
+}
+
 const ScreenHeaderBtn = ({
   icon,
   dimension,
-}: {
-  icon: ImageSourcePropType
-  dimension: string
-}) => {
+  onPress,
+}: ScreenHeaderBtnProps) => {
   return (
-    <TouchableOpacity style={styles.btnContainer}>
+    <TouchableOpacity style={styles.btnContainer} onPress={onPress}>
       <Image
         source={icon}
         resizeMode="cover"

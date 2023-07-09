@@ -1,14 +1,13 @@
 import { ActivityIndicator, Text, TouchableOpacity, View } from "react-native"
 import { COLORS } from "../../../constants"
-import useFetch from "../../../hooks/useFetch"
+import useFetchMany from "../../../hooks/useFetchMany"
 import { JobInterface } from "../../../interfaces"
 import NearbyJobCard from "../../common/cards/nearby/NearbyJobCard"
 import styles from "./nearbyjobs.style"
 
 const NearbyJobs = () => {
-  const { data, isLoading, error } = useFetch("search", {
-    query: "React developer",
-    num_page: 1,
+  const { data, isLoading, error } = useFetchMany({
+    SearchQuery: "developer",
   })
 
   return (

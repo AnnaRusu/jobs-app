@@ -6,13 +6,16 @@ export interface FetchProps {
 export interface JobInterface {
   id: string
   title: string
-  description: string
   type: string
   skills: string[]
-  country: string
-  employer: string
-  website: string
+  location: string
+  company: string
   logo: string
-  job_link: string
   publisher: string
+  link: string
+  slug: string
+  tags?: string[]
+  postDate?: string
+  url?: string
+  originalPosting?: string
 }

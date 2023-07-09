@@ -6,15 +6,14 @@ import {
   View,
 } from "react-native"
 import { COLORS, SIZES } from "../../../constants"
+import useFetchMany from "../../../hooks/useFetchMany"
 import { JobInterface } from "../../../interfaces"
-import useFetch from "../../../hooks/useFetch"
 import PopularJobCard from "../../common/cards/popular/PopularJobCard"
 import styles from "./popularjobs.style"
 
 const PopularJobs = () => {
-  const { data, isLoading, error } = useFetch("search", {
-    query: "React developer",
-    num_page: 1,
+  const { data, isLoading, error } = useFetchMany({
+    SearchQuery: "developer",
   })
 
   const Item = ({ item }: { item: JobInterface }) => {
