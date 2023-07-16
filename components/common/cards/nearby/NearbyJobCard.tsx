@@ -17,7 +17,7 @@ const NearbyJobCard = ({ job }: { job: JobInterface }) => {
     "https://t4.ftcdn.net/jpg/05/05/61/73/360_F_505617309_NN1CW7diNmGXJfMicpY9eXHKV4sqzO5H.jpg"
 
   const handleNavigate = (job: JobInterface) => {
-    router.push(`/job-details/${job?.id}`)
+    router.push(`/job-details/${job?.slug}`)
   }
   return (
     <TouchableOpacity
