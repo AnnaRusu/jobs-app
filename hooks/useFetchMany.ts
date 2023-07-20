@@ -1,4 +1,5 @@
 import axios from "axios"
+import uuid from "react-native-uuid"
 import { REACT_APP_API_KEY } from "@env"
 import { useEffect, useState } from "react"
 import { FetchProps, JobInterface } from "../interfaces"
@@ -38,8 +39,9 @@ const useFetchMany = (query: FetchProps["query"]) => {
       const res = await axios.request(options)
       // Only keep/edit the keys I'm going to use
       const newData: JobInterface[] = res.data.data.map((item: any) => {
+        console.log("testy", uuid.v4())
         return {
-          id: item.id,
+          _id: uuid.v4(),
           title: item.title,
           type: types[Math.floor(Math.random() * types.length)],
           skills: item.tags,

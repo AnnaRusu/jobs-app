@@ -1,4 +1,5 @@
 import axios from "axios"
+import uuid from "react-native-uuid"
 import { REACT_APP_API_KEY } from "@env"
 import { useEffect, useState } from "react"
 import { FetchProps, JobInterface } from "../interfaces"
@@ -29,6 +30,7 @@ const useFetchOne = (slug: string, query: FetchProps["query"]) => {
 
       setData({
         ...res.data,
+        id: uuid.v4(),
         type: types[Math.floor(Math.random() * types.length)],
       })
       setIsLoading(false)

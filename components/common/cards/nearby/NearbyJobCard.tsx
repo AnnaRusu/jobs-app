@@ -19,6 +19,7 @@ const NearbyJobCard = ({ job }: { job: JobInterface }) => {
   const handleNavigate = (job: JobInterface) => {
     router.push(`/job-details/${job?.slug}`)
   }
+
   return (
     <TouchableOpacity
       style={styles.container}

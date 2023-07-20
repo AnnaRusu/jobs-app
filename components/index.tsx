@@ -9,7 +9,6 @@ import Welcome from "./home/welcome/Welcome"
 import About from "./jobdetails/about/About"
 import Company from "./jobdetails/company/Company"
 import { default as JobFooter } from "./jobdetails/footer/Footer"
-import Header from "./jobdetails/header/Header"
 import MoreInfo from "./jobdetails/specifics/MoreInfo"
 import TabButton from "./jobdetails/tabs/TabButton"
 import TabContent from "./jobdetails/tabs/TabContent"
@@ -21,7 +20,6 @@ import Tabs from "./jobdetails/tabs/Tabs"
 export {
   About,
   Company,
-  Header,
   JobFooter,
   MoreInfo,
   NearbyJobCard,

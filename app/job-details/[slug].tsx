@@ -7,9 +7,11 @@ import {
   Text,
   View,
 } from "react-native"
-import { Company, Header, Tabs } from "../../components"
+import { Company, Tabs } from "../../components"
 import { COLORS, SIZES } from "../../constants"
 import useFetchOne from "../../hooks/useFetchOne"
+import Footer from "../../components/jobdetails/footer/Footer"
+import Header from "../../components/jobdetails/header/Header"
 
 export default function JobDetails() {
   const params = useGlobalSearchParams()
@@ -37,6 +39,7 @@ export default function JobDetails() {
           </View>
         )}
       </ScrollView>
+      <Footer data={data} />
     </SafeAreaView>
   )
 }
