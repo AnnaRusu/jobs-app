@@ -1,22 +1,14 @@
 import { ActivityIndicator, Text, TouchableOpacity, View } from "react-native"
 import { COLORS } from "../../../constants"
-import useFetch from "../../../hooks/useFetch"
 import { JobInterface } from "../../../interfaces"
-import NearbyJobCard from "../../common/cards/nearby/NearbyJobCard"
+import { NearbyJobCard } from "../../../components"
+import useFetchMany from "../../../hooks/useFetchMany"
 import styles from "./nearbyjobs.style"
-import { useRouter } from "expo-router"
 
 const NearbyJobs = () => {
-  const router = useRouter()
-
-  const { data, isLoading, error } = useFetch("search", {
-    query: "React developer",
-    num_page: 1,
+  const { data, isLoading, error } = useFetchMany({
+    SearchQuery: "developer",
   })
-
-  const handleNavigate = (job: JobInterface) => {
-    router.push(`/job-details/${job?.id}`)
-  }
 
   return (
     <View style={styles.container}>
@@ -34,11 +26,7 @@ const NearbyJobs = () => {
           <Text>Something went wrong</Text>
         ) : (
           data.map((job: JobInterface) => (
-            <NearbyJobCard
-              key={`nearby-job-${job?.id}`}
-              job={job}
-              handleNavigate={handleNavigate}
-            />
+            <NearbyJobCard key={`nearby-job-${job?.slug}`} job={job} />
           ))
         )}
       </View>

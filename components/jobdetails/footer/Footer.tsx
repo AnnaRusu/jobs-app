@@ -1,12 +1,53 @@
-import React from 'react'
-import { View, Text } from 'react-native'
+import { View, Text, TouchableOpacity, Image, Linking } from "react-native"
+import styles from "./footer.style"
+import { icons } from "../../../constants"
+import {
+  isFavoriteItem,
+  removeFavoriteItem,
+  saveFavoriteItem,
+} from "../../../utils/favourite-items"
+import { useEffect, useState } from "react"
 
-import styles from './footer.style'
+const Footer = ({ data }) => {
+  const [isFavourite, setIsFavourite] = useState(false)
+  console.log("data", data)
 
-const Footer = () => {
+  useEffect(() => {
+    const checkIsFavorite = async () => {
+      if (data) {
+        const favouriteStatus = await isFavoriteItem(data.slug)
+        setIsFavourite(favouriteStatus)
+      }
+    }
+    checkIsFavorite()
+  }, [data])
+
+  const handlePress = async () => {
+    if (data && isFavourite) {
+      await removeFavoriteItem(data.slug)
+      setIsFavourite(false)
+    } else {
+      await saveFavoriteItem(data)
+      setIsFavourite(true)
+    }
+  }
+
   return (
-    <View>
-      <Text>Footer</Text>
+    <View style={styles.container}>
+      <TouchableOpacity style={styles.likeBtn} onPress={handlePress}>
+        <Image
+          source={isFavourite ? icons.heart : icons.heartOutline}
+          resizeMode="contain"
+          style={styles.likeBtnImage}
+        />
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        style={styles.applyBtn}
+        onPress={() => Linking.openURL(data?.url)}
+      >
+        <Text style={styles.applyBtnText}>Apply for job</Text>
+      </TouchableOpacity>
     </View>
   )
 }
