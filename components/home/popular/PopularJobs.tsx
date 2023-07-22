@@ -6,9 +6,9 @@ import {
   View,
 } from "react-native"
 import { COLORS, SIZES } from "../../../constants"
-import useFetchMany from "../../../hooks/useFetchMany"
 import { JobInterface } from "../../../interfaces"
-import PopularJobCard from "../../common/cards/popular/PopularJobCard"
+import { PopularJobCard } from "../../../components"
+import useFetchMany from "../../../hooks/useFetchMany"
 import styles from "./popularjobs.style"
 
 const PopularJobs = () => {

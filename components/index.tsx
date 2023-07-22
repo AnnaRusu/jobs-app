@@ -1,4 +1,3 @@
-import ScreenHeaderBtn from "./common/header/ScreenHeaderBtn"
 
 // home screen
 import NearbyJobs from "./home/nearby/NearbyJobs"
@@ -8,19 +7,21 @@ import Welcome from "./home/welcome/Welcome"
 // job details screen
 import About from "./jobdetails/about/About"
 import Company from "./jobdetails/company/Company"
-import { default as JobFooter } from "./jobdetails/footer/Footer"
 import MoreInfo from "./jobdetails/specifics/MoreInfo"
 import TabButton from "./jobdetails/tabs/TabButton"
 import TabContent from "./jobdetails/tabs/TabContent"
+import Tabs from "./jobdetails/tabs/Tabs"
+import Footer from "./jobdetails/footer/Footer"
+import Header from "./jobdetails/header/Header"
 
 // common
 import NearbyJobCard from "./common/cards/nearby/NearbyJobCard"
-import Tabs from "./jobdetails/tabs/Tabs"
+import PopularJobCard from "./common/cards/popular/PopularJobCard"
+import ScreenHeaderBtn from "./common/header/ScreenHeaderBtn"
 
 export {
   About,
   Company,
-  JobFooter,
   MoreInfo,
   NearbyJobCard,
   NearbyJobs,
@@ -30,4 +31,7 @@ export {
   TabContent,
   Tabs,
   Welcome,
+  Footer,
+  Header,
+  PopularJobCard,
 }

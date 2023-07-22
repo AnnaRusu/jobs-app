@@ -1,4 +1,3 @@
-import React from "react"
 import { Image, ImageSourcePropType, TouchableOpacity } from "react-native"
 import styles from "./screenheader.style"
 
