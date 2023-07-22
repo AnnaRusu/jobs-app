@@ -3,7 +3,7 @@ import { REACT_APP_API_KEY } from "@env"
 import { useEffect, useState } from "react"
 import { FetchProps, JobInterface } from "../interfaces"
 
-const useFetchMany = (query: FetchProps["query"]) => {
+const useFetchMany = (query: FetchProps["query"]={}) => {
   const [data, setData] = useState<JobInterface[]>([])
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<Error | null>(null)

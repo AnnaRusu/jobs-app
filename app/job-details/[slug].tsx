@@ -13,7 +13,7 @@ import useFetchOne from "../../hooks/useFetchOne"
 
 export default function JobDetails() {
   const params = useGlobalSearchParams()
-  const { data, isLoading, error } = useFetchOne(params.slug as string, {})
+  const { data, isLoading, error } = useFetchOne(params.slug as string)
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.lightWhite }}>
