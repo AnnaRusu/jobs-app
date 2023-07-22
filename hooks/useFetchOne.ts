@@ -9,6 +9,7 @@ const useFetchOne = (slug: string, query: FetchProps["query"]) => {
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<Error | null>(null)
   const types = ["Full-time", "Part-time", "Contractor"]
+  console.log(data)
 
   const options = {
     method: "GET",
@@ -30,7 +31,6 @@ const useFetchOne = (slug: string, query: FetchProps["query"]) => {
 
       setData({
         ...res.data,
-        id: uuid.v4(),
         type: types[Math.floor(Math.random() * types.length)],
       })
       setIsLoading(false)
