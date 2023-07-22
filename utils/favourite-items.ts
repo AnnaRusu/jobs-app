@@ -22,20 +22,20 @@ export const getFavoriteItems = async () => {
   }
 }
 
-export const removeFavoriteItem = async (id: string) => {
+export const removeFavoriteItem = async (slug: string) => {
   try {
     let favorites = await getFavoriteItems()
-    favorites = favorites.filter((favorite: JobInterface) => favorite.id !== id)
+    favorites = favorites.filter((favorite: JobInterface) => favorite.slug !== slug)
     await AsyncStorage.setItem("favorites", JSON.stringify(favorites))
   } catch (error) {
     console.error("Error removing from favorites:", error)
   }
 }
 
-export const isFavoriteItem = async (id: string) => {
+export const isFavoriteItem = async (slug: string) => {
   try {
     const favorites = await getFavoriteItems()
-    return favorites.some((item: JobInterface) => item.id === id)
+    return favorites.some((item: JobInterface) => item.slug === slug)
   } catch (error) {
     console.error("Error checking if item is favorite:", error)
     return false

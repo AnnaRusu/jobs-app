@@ -1,5 +1,4 @@
 import axios from "axios"
-import uuid from "react-native-uuid"
 import { REACT_APP_API_KEY } from "@env"
 import { useEffect, useState } from "react"
 import { FetchProps, JobInterface } from "../interfaces"
@@ -9,7 +8,6 @@ const useFetchOne = (slug: string, query: FetchProps["query"]) => {
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<Error | null>(null)
   const types = ["Full-time", "Part-time", "Contractor"]
-  console.log(data)
 
   const options = {
     method: "GET",

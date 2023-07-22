@@ -26,7 +26,7 @@ const NearbyJobs = () => {
           <Text>Something went wrong</Text>
         ) : (
           data.map((job: JobInterface) => (
-            <NearbyJobCard key={`nearby-job-${job?.id}`} job={job} />
+            <NearbyJobCard key={`nearby-job-${job?.slug}`} job={job} />
           ))
         )}
       </View>

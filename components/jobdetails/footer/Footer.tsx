@@ -15,7 +15,7 @@ const Footer = ({ data }) => {
   useEffect(() => {
     const checkIsFavorite = async () => {
       if (data) {
-        const favouriteStatus = await isFavoriteItem(data.id)
+        const favouriteStatus = await isFavoriteItem(data.slug)
         setIsFavourite(favouriteStatus)
       }
     }
@@ -24,7 +24,7 @@ const Footer = ({ data }) => {
 
   const handlePress = async () => {
     if (data && isFavourite) {
-      await removeFavoriteItem(data.id)
+      await removeFavoriteItem(data.slug)
       setIsFavourite(false)
     } else {
       await saveFavoriteItem(data)
