@@ -1,20 +1,16 @@
-import { Stack, useRouter } from "expo-router";
-import { SafeAreaView, ScrollView, View } from "react-native";
+import { Stack, useRouter } from "expo-router"
+import { SafeAreaView, ScrollView, View } from "react-native"
 
-import {
-  NearbyJobs,
-  PopularJobs,
-  ScreenHeaderBtn,
-  Welcome,
-} from "../components";
-import { COLORS, SIZES, icons, images } from "../constants";
+import { NearbyJobs, PopularJobs, Welcome } from "../components"
+import { COLORS, SIZES, icons, images } from "../constants"
+import ScreenHeaderBtn from "../components/common/header/ScreenHeaderBtn"
 
 export default function Home() {
-  const router = useRouter();
+  const router = useRouter()
 
-  const safeAreaStyle = { flex: 1, backgroundColor: COLORS.lightWhite };
-  const headerStyle = { backgroundColor: COLORS.lightWhite };
-  const viewStyle = { flex: 1, padding: SIZES.medium };
+  const safeAreaStyle = { flex: 1, backgroundColor: COLORS.lightWhite }
+  const headerStyle = { backgroundColor: COLORS.lightWhite }
+  const viewStyle = { flex: 1, padding: SIZES.medium }
 
   return (
     <SafeAreaView style={safeAreaStyle}>
@@ -39,5 +35,5 @@ export default function Home() {
         </View>
       </ScrollView>
     </SafeAreaView>
-  );
+  )
 }

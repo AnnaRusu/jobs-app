@@ -1,5 +1,5 @@
-import { useRouter } from "expo-router";
-import { useEffect, useState } from "react";
+import { useRouter } from "expo-router"
+import { useEffect, useState } from "react"
 import {
   FlatList,
   Image,
@@ -7,26 +7,26 @@ import {
   TextInput,
   TouchableOpacity,
   View,
-} from "react-native";
-import { COLORS, SIZES, icons } from "../../../constants";
-import { getUser } from "../../../utils/user";
-import styles from "./welcome.style";
+} from "react-native"
+import { COLORS, SIZES, icons } from "../../../constants"
+import { getUser } from "../../../utils/user"
+import styles from "./welcome.style"
 
-const jobTypes = ["Full-time", "Part-time", "Contractor"];
+const jobTypes = ["Full-time", "Part-time", "Contractor"]
 
 const Welcome = () => {
-  const router = useRouter();
-  const [activeJobType, setActiveJobType] = useState("Full-time");
-  const [name, setName] = useState("");
+  const router = useRouter()
+  const [activeJobType, setActiveJobType] = useState("Full-time")
+  const [name, setName] = useState("")
 
   useEffect(() => {
-    getUser().then((username) => setName(username));
-  }, []);
+    getUser().then((username) => setName(username))
+  }, [])
 
   const handlePressItem = (item: string) => {
-    setActiveJobType(item);
-    router.push(`/search/${item}`);
-  };
+    setActiveJobType(item)
+    router.push(`/search/${item}`)
+  }
 
   const Item = ({ item }: { item: string }) => (
     <TouchableOpacity
@@ -49,7 +49,7 @@ const Welcome = () => {
         {item}
       </Text>
     </TouchableOpacity>
-  );
+  )
 
   return (
     <View>
@@ -86,7 +86,7 @@ const Welcome = () => {
         />
       </View>
     </View>
-  );
-};
+  )
+}
 
-export default Welcome;
+export default Welcome

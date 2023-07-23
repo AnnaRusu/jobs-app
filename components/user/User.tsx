@@ -1,16 +1,16 @@
-import { ImageBackground, Text, TextInput, View } from "react-native";
-import { setUser } from "../../utils/user";
-import { useRouter } from "expo-router";
-import { images } from "../../constants";
-import styles from "./user.style";
+import { ImageBackground, Text, TextInput, View } from "react-native"
+import { setUser } from "../../utils/user"
+import { useRouter } from "expo-router"
+import { images } from "../../constants"
+import styles from "./user.style"
 
 const User = () => {
-  const router = useRouter();
+  const router = useRouter()
 
   const handleSubmitEditing = (event: any) => {
-    setUser(event.nativeEvent.text);
-    router.push("/home");
-  };
+    setUser(event.nativeEvent.text)
+    router.push("/home")
+  }
 
   return (
     <View style={{ flex: 1 }}>
@@ -32,7 +32,7 @@ const User = () => {
         </View>
       </ImageBackground>
     </View>
-  );
-};
+  )
+}
 
-export default User;
+export default User
