@@ -1,6 +1,6 @@
 import { Stack, useRouter } from "expo-router"
-import { ScreenHeaderBtn } from "../../../components"
 import { COLORS, icons } from "../../../constants"
+import ScreenHeaderBtn from "../../../components/common/header/ScreenHeaderBtn"
 
 const Header = () => {
   const router = useRouter()

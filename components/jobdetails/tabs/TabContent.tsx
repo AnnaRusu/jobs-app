@@ -1,4 +1,5 @@
-import {About, MoreInfo} from "../../../components"
+import About from "../about/About"
+import MoreInfo from "../specifics/MoreInfo"
 
 const TabContent = ({ activeTab, data }) => {
   const moreInfoData = {
