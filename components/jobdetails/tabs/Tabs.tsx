@@ -1,8 +1,9 @@
 import { useState } from "react"
 import { FlatList, View } from "react-native"
 import { SIZES } from "../../../constants"
-import {TabButton, TabContent} from "../../../components"
+import { TabButton } from "../../../components"
 import styles from "./tabs.style"
+import TabContent from "./TabContent"
 
 const tabs = ["About", "More Info"]
 

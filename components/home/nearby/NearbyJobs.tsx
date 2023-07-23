@@ -1,7 +1,7 @@
 import { ActivityIndicator, Text, TouchableOpacity, View } from "react-native"
 import { COLORS } from "../../../constants"
 import { JobInterface } from "../../../interfaces"
-import { NearbyJobCard } from "../../../components"
+import NearbyJobCard from "../../../components/common/cards/nearby/NearbyJobCard"
 import useFetchMany from "../../../hooks/useFetchMany"
 import styles from "./nearbyjobs.style"
 

@@ -7,9 +7,9 @@ import {
 } from "react-native"
 import { COLORS, SIZES } from "../../../constants"
 import { JobInterface } from "../../../interfaces"
-import { PopularJobCard } from "../../../components"
 import useFetchMany from "../../../hooks/useFetchMany"
 import styles from "./popularjobs.style"
+import PopularJobCard from "../../../components/common/cards/popular/PopularJobCard"
 
 const PopularJobs = () => {
   const { data, isLoading, error } = useFetchMany({

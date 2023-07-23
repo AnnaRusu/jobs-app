@@ -1,5 +1,5 @@
 import { useRouter } from "expo-router"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import {
   FlatList,
   Image,
@@ -9,6 +9,7 @@ import {
   View,
 } from "react-native"
 import { COLORS, SIZES, icons } from "../../../constants"
+import { getUser } from "../../../utils/user"
 import styles from "./welcome.style"
 
 const jobTypes = ["Full-time", "Part-time", "Contractor"]
@@ -16,6 +17,11 @@ const jobTypes = ["Full-time", "Part-time", "Contractor"]
 const Welcome = () => {
   const router = useRouter()
   const [activeJobType, setActiveJobType] = useState("Full-time")
+  const [name, setName] = useState("")
+
+  useEffect(() => {
+    getUser().then((username) => setName(username))
+  }, [])
 
   const handlePressItem = (item: string) => {
     setActiveJobType(item)
@@ -48,7 +54,7 @@ const Welcome = () => {
   return (
     <View>
       <View style={styles.container}>
-        <Text style={styles.userName}>Welcome Anna</Text>
+        <Text style={styles.userName}>Welcome {name}</Text>
         <Text style={styles.welcomeMessage}>Find your perfect job</Text>
       </View>
 

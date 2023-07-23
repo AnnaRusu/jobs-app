@@ -7,9 +7,11 @@ import {
   Text,
   View,
 } from "react-native"
-import { Company, Tabs, Footer, Header } from "../../components"
+import { Company, Footer } from "../../components"
 import { COLORS, SIZES } from "../../constants"
 import useFetchOne from "../../hooks/useFetchOne"
+import Header from "../../components/jobdetails/header/Header"
+import Tabs from "../../components/jobdetails/tabs/Tabs"
 
 export default function JobDetails() {
   const params = useGlobalSearchParams()
