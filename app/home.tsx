@@ -1,12 +1,13 @@
 import { Stack, useRouter } from "expo-router"
 import { SafeAreaView, ScrollView, View } from "react-native"
-
+import { useState } from "react"
 import { NearbyJobs, PopularJobs, Welcome } from "../components"
 import { COLORS, SIZES, icons, images } from "../constants"
 import ScreenHeaderBtn from "../components/common/header/ScreenHeaderBtn"
 
 export default function Home() {
-  const router = useRouter()
+  const [query, setQuery] = useState("linux")
+  console.log(query)
 
   const safeAreaStyle = { flex: 1, backgroundColor: COLORS.lightWhite }
   const headerStyle = { backgroundColor: COLORS.lightWhite }
@@ -29,9 +30,9 @@ export default function Home() {
       />
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={viewStyle}>
-          <Welcome />
-          <PopularJobs />
-          <NearbyJobs />
+          <Welcome setQuery={setQuery} />
+          <PopularJobs query={query} />
+          <NearbyJobs query={query} />
         </View>
       </ScrollView>
     </SafeAreaView>

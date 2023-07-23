@@ -5,16 +5,21 @@ import {
   TouchableOpacity,
   View,
 } from "react-native"
+import { useEffect } from "react"
 import { COLORS, SIZES } from "../../../constants"
 import { JobInterface } from "../../../interfaces"
 import useFetchMany from "../../../hooks/useFetchMany"
 import styles from "./popularjobs.style"
 import PopularJobCard from "../../../components/common/cards/popular/PopularJobCard"
 
-const PopularJobs = () => {
-  const { data, isLoading, error } = useFetchMany({
-    SearchQuery: "developer",
+const PopularJobs = ({ query }) => {
+  const { data, isLoading, error, refetch } = useFetchMany({
+    SearchQuery: query,
   })
+
+  useEffect(() => {
+    refetch()
+  }, [query])
 
   const Item = ({ item }: { item: JobInterface }) => {
     return <PopularJobCard job={item} />

@@ -1,23 +1,18 @@
 import { useRouter } from "expo-router"
 import { useEffect, useState } from "react"
-import {
-  FlatList,
-  Image,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
-} from "react-native"
-import { COLORS, SIZES, icons } from "../../../constants"
+import { FlatList, Text, TouchableOpacity, View } from "react-native"
+import { COLORS, SIZES } from "../../../constants"
 import { getUser } from "../../../utils/user"
 import styles from "./welcome.style"
+import Search from "../../../components/common/search/Search"
 
 const jobTypes = ["Full-time", "Part-time", "Contractor"]
 
-const Welcome = () => {
+const Welcome = ({ setQuery }) => {
   const router = useRouter()
   const [activeJobType, setActiveJobType] = useState("Full-time")
   const [name, setName] = useState("")
+  const [search, setSearch] = useState("")
 
   useEffect(() => {
     getUser().then((username) => setName(username))
@@ -57,24 +52,7 @@ const Welcome = () => {
         <Text style={styles.userName}>Welcome {name}</Text>
         <Text style={styles.welcomeMessage}>Find your perfect job</Text>
       </View>
-
-      <View style={styles.searchContainer}>
-        <View style={styles.searchWrapper}>
-          <TextInput
-            style={styles.searchInput}
-            onChangeText={() => {}}
-            placeholder="What are you looking for?"
-          />
-        </View>
-        <TouchableOpacity style={styles.searchBtn} onPress={() => {}}>
-          <Image
-            source={icons.search}
-            resizeMode="contain"
-            style={styles.searchBtnImage}
-          />
-        </TouchableOpacity>
-      </View>
-
+      <Search setQuery={setQuery} />
       <View style={styles.tabsContainer}>
         <FlatList
           data={jobTypes}
