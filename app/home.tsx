@@ -1,4 +1,4 @@
-import { Stack, useRouter } from "expo-router"
+import { Stack } from "expo-router"
 import { SafeAreaView, ScrollView, View } from "react-native"
 import { useState } from "react"
 import { NearbyJobs, PopularJobs, Welcome } from "../components"
@@ -7,7 +7,6 @@ import ScreenHeaderBtn from "../components/common/header/ScreenHeaderBtn"
 
 export default function Home() {
   const [query, setQuery] = useState("linux")
-  console.log(query)
 
   const safeAreaStyle = { flex: 1, backgroundColor: COLORS.lightWhite }
   const headerStyle = { backgroundColor: COLORS.lightWhite }

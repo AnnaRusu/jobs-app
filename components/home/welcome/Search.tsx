@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { Image, TextInput, TouchableOpacity, View } from "react-native"
 import { icons } from "../../../constants"
-import styles from "../../home/welcome/welcome.style"
+import styles from "./welcome.style"
 
 const Search = ({ setQuery }) => {
   const [search, setSearch] = useState("")
