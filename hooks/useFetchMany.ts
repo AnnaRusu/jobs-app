@@ -2,6 +2,7 @@ import axios from "axios"
 import { REACT_APP_API_KEY } from "@env"
 import { useEffect, useState } from "react"
 import { FetchProps, JobInterface } from "../interfaces"
+import { isEmpty } from "lodash"
 
 const useFetchMany = (query: FetchProps["query"] = {}) => {
   const [data, setData] = useState<JobInterface[]>([])
@@ -20,10 +21,13 @@ const useFetchMany = (query: FetchProps["query"] = {}) => {
     "Lisbon",
     "Stockholm",
   ]
+  console.log("query", query, isEmpty(query.SearchQuery))
 
   const options = {
     method: "GET",
-    url: "https://jobsearch4.p.rapidapi.com/api/v1/Jobs/Search",
+    url: `https://jobsearch4.p.rapidapi.com/api/v2/Jobs/${
+      isEmpty(query.SearchQuery) ? "Latest" : "Search"
+    }`,
     headers: {
       "X-RapidAPI-Key": REACT_APP_API_KEY,
       "X-RapidAPI-Host": "jobsearch4.p.rapidapi.com",

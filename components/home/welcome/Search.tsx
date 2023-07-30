@@ -7,12 +7,12 @@ const Search = ({ setQuery }) => {
   const [search, setSearch] = useState("")
 
   const handleChangeText = (text: string) => {
-    text === "" && setQuery("linux")
+    text === "" && setQuery("")
     setSearch(text)
   }
 
   const handlePressButton = () => {
-    search === "" ? setQuery("linux") : setQuery(search)
+    search === "" ? setQuery("") : setQuery(search)
   }
 
   return (

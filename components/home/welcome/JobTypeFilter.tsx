@@ -6,12 +6,11 @@ import styles from "./welcome.style"
 
 const jobTypes = ["Full-time", "Part-time", "Contractor"]
 
-const JobTypeFilter = () => {
+const JobTypeFilter = ({ filter, setFilter }) => {
   const router = useRouter()
-  const [activeJobType, setActiveJobType] = useState("Full-time")
 
   const handlePressItem = (item: string) => {
-    setActiveJobType(item)
+    setFilter(item)
     router.push(`/search/${item}`)
   }
 
@@ -19,7 +18,7 @@ const JobTypeFilter = () => {
     <TouchableOpacity
       style={[
         styles.tab,
-        activeJobType === item
+        filter === item
           ? { borderColor: COLORS.secondary }
           : { borderColor: COLORS.gray2 },
       ]}
@@ -28,7 +27,7 @@ const JobTypeFilter = () => {
       <Text
         style={[
           styles.tabText,
-          activeJobType === item
+          filter === item
             ? { color: COLORS.secondary }
             : { color: COLORS.gray2 },
         ]}
