@@ -31,7 +31,7 @@ export default function Home() {
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={viewStyle}>
           <Welcome setQuery={setQuery} filter={filter} setFilter={setFilter} />
-          <PopularJobs query={query} />
+          <PopularJobs filter={filter} query={query} />
           <NearbyJobs query={query} />
         </View>
       </ScrollView>

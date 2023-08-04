@@ -3,7 +3,7 @@ import { REACT_APP_API_KEY } from "@env"
 import { useEffect, useState } from "react"
 import { FetchProps, JobInterface } from "../interfaces"
 
-const useFetchOne = (slug: string, query: FetchProps["query"]={}) => {
+const useFetchOne = (slug: string, query: FetchProps["query"] = {}) => {
   const [data, setData] = useState<JobInterface>(null)
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<Error | null>(null)
@@ -11,7 +11,7 @@ const useFetchOne = (slug: string, query: FetchProps["query"]={}) => {
 
   const options = {
     method: "GET",
-    url: `https://jobsearch4.p.rapidapi.com/api/v1/Jobs/${slug}`,
+    url: `https://jobsearch4.p.rapidapi.com/api/v2/Jobs/${slug}`,
     headers: {
       "X-RapidAPI-Key": REACT_APP_API_KEY,
       "X-RapidAPI-Host": "jobsearch4.p.rapidapi.com",
@@ -32,11 +32,9 @@ const useFetchOne = (slug: string, query: FetchProps["query"]={}) => {
         type: types[Math.floor(Math.random() * types.length)],
       })
       setIsLoading(false)
-    } 
-    catch (error: any | null) {
+    } catch (error: any | null) {
       setError(error)
-    } 
-    finally {
+    } finally {
       setIsLoading(false)
     }
   }

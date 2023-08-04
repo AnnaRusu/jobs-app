@@ -12,10 +12,12 @@ import useFetchMany from "../../../hooks/useFetchMany"
 import styles from "./popularjobs.style"
 import PopularJobCard from "../../../components/common/cards/popular/PopularJobCard"
 
-const PopularJobs = ({ query }) => {
+const PopularJobs = ({ query, filter }) => {
   const { data, isLoading, error, refetch } = useFetchMany({
     SearchQuery: query,
   })
+
+  const filteredData = data.filter((job) => job.type === filter)
 
   useEffect(() => {
     refetch()
@@ -41,7 +43,7 @@ const PopularJobs = ({ query }) => {
           <Text>Something went wrong</Text>
         ) : (
           <FlatList
-            data={data}
+            data={filteredData}
             renderItem={Item}
             keyExtractor={(item) => item?.slug}
             contentContainerStyle={{ columnGap: SIZES.medium }}

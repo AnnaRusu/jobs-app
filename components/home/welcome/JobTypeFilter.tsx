@@ -1,5 +1,3 @@
-import { useRouter } from "expo-router"
-import { useState } from "react"
 import { FlatList, Text, TouchableOpacity, View } from "react-native"
 import { COLORS, SIZES } from "../../../constants"
 import styles from "./welcome.style"
@@ -7,11 +5,8 @@ import styles from "./welcome.style"
 const jobTypes = ["Full-time", "Part-time", "Contractor"]
 
 const JobTypeFilter = ({ filter, setFilter }) => {
-  const router = useRouter()
-
   const handlePressItem = (item: string) => {
     setFilter(item)
-    router.push(`/search/${item}`)
   }
 
   const Item = ({ item }: { item: string }) => (

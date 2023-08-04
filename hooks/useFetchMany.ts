@@ -21,13 +21,11 @@ const useFetchMany = (query: FetchProps["query"] = {}) => {
     "Lisbon",
     "Stockholm",
   ]
-  console.log("query", query, isEmpty(query.SearchQuery))
+  const activeQuery = isEmpty(query.SearchQuery) ? "Latest" : "Search"
 
   const options = {
     method: "GET",
-    url: `https://jobsearch4.p.rapidapi.com/api/v2/Jobs/${
-      isEmpty(query.SearchQuery) ? "Latest" : "Search"
-    }`,
+    url: `https://jobsearch4.p.rapidapi.com/api/v2/Jobs/${activeQuery}`,
     headers: {
       "X-RapidAPI-Key": REACT_APP_API_KEY,
       "X-RapidAPI-Host": "jobsearch4.p.rapidapi.com",
