@@ -5,16 +5,23 @@ import {
   TouchableOpacity,
   View,
 } from "react-native"
+import { useEffect } from "react"
 import { COLORS, SIZES } from "../../../constants"
 import { JobInterface } from "../../../interfaces"
 import useFetchMany from "../../../hooks/useFetchMany"
 import styles from "./popularjobs.style"
 import PopularJobCard from "../../../components/common/cards/popular/PopularJobCard"
 
-const PopularJobs = () => {
-  const { data, isLoading, error } = useFetchMany({
-    SearchQuery: "developer",
+const PopularJobs = ({ query, filter }) => {
+  const { data, isLoading, error, refetch } = useFetchMany({
+    SearchQuery: query,
   })
+
+  const filteredData = data.filter((job) => job.type === filter)
+
+  useEffect(() => {
+    refetch()
+  }, [query])
 
   const Item = ({ item }: { item: JobInterface }) => {
     return <PopularJobCard job={item} />
@@ -36,7 +43,7 @@ const PopularJobs = () => {
           <Text>Something went wrong</Text>
         ) : (
           <FlatList
-            data={data}
+            data={filteredData}
             renderItem={Item}
             keyExtractor={(item) => item?.slug}
             contentContainerStyle={{ columnGap: SIZES.medium }}

@@ -2,8 +2,9 @@ import axios from "axios"
 import { REACT_APP_API_KEY } from "@env"
 import { useEffect, useState } from "react"
 import { FetchProps, JobInterface } from "../interfaces"
+import { isEmpty } from "lodash"
 
-const useFetchMany = (query: FetchProps["query"]={}) => {
+const useFetchMany = (query: FetchProps["query"] = {}) => {
   const [data, setData] = useState<JobInterface[]>([])
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<Error | null>(null)
@@ -20,10 +21,11 @@ const useFetchMany = (query: FetchProps["query"]={}) => {
     "Lisbon",
     "Stockholm",
   ]
+  const activeQuery = isEmpty(query.SearchQuery) ? "Latest" : "Search"
 
   const options = {
     method: "GET",
-    url: "https://jobsearch4.p.rapidapi.com/api/v1/Jobs/Search",
+    url: `https://jobsearch4.p.rapidapi.com/api/v2/Jobs/${activeQuery}`,
     headers: {
       "X-RapidAPI-Key": REACT_APP_API_KEY,
       "X-RapidAPI-Host": "jobsearch4.p.rapidapi.com",
@@ -38,7 +40,6 @@ const useFetchMany = (query: FetchProps["query"]={}) => {
       const res = await axios.request(options)
       // Only keep/edit the keys I'm going to use
       const newData: JobInterface[] = res.data.data.map((item: any) => {
-      
         return {
           title: item.title,
           type: types[Math.floor(Math.random() * types.length)],
