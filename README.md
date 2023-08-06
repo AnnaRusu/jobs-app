@@ -1,4 +1,4 @@
-# React Native Expo Job Search App
+# Jobs Search App
 
 This is a React Native Expo app that allows users to search and filter jobs, as well as view detailed information about a specific job.
 
@@ -14,8 +14,8 @@ This app uses the [JobSearch API](https://rapidapi.com/avaneesab5/api/jobsearch4
 ## Installation
 
 1. Clone this repository
-2. Install dependencies by running npm install
-3. Start the app by running expo start
+2. Install dependencies by running `npm install`
+3. Start the app by running `npx expo start` or `npm start`
 
 ## Usage
 
